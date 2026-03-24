@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tic Tac Toe AI</title>
+  <meta name="description" content="Play Tic Tac Toe against an unbeatable AI powered by the Minimax algorithm with Alpha-Beta pruning." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page">
+
+    <!-- ── Header ── -->
+    <header class="header">
+      <div class="header-inner">
+        <div class="logo">
+          <div class="logo-mark">
+            <span>✕</span><span>○</span>
+          </div>
+          <div>
+            <h1>Tic Tac Toe</h1>
+            <p class="tagline">Powered by Minimax · Alpha-Beta Pruning</p>
+          </div>
+        </div>
+        <button id="restart-btn" class="btn-restart" aria-label="Restart game">
+          ↺ New Game
+        </button>
+      </div>
+    </header>
+
+    <!-- ── Body ── -->
+    <main class="content">
+
+      <!-- Left: Board -->
+      <section class="board-section">
+        <div id="status" class="status-badge">Your turn</div>
+
+        <div class="board-card">
+          <div id="board" class="board" role="grid" aria-label="Tic Tac Toe board">
+            <!-- cells injected by GameView -->
+          </div>
+        </div>
+
+        <div class="legend">
+          <span class="legend-x"><strong>X</strong> You</span>
+          <span class="legend-sep">vs</span>
+          <span class="legend-o"><strong>O</strong> AI</span>
+        </div>
+      </section>
+
+      <!-- Right: AI Panel -->
+      <aside class="panel">
+
+        <div class="panel-section">
+          <p class="section-label">Last AI Move</p>
+          <div class="stat-grid">
+            <div class="stat">
+              <span class="stat-label">Chosen Move</span>
+              <span class="stat-value" id="ai-move">—</span>
+            </div>
+            <div class="stat">
+              <span class="stat-label">Score</span>
+              <span class="stat-value" id="ai-score">—</span>
+            </div>
+            <div class="stat">
+              <span class="stat-label">Depth</span>
+              <span class="stat-value" id="ai-depth">—</span>
+            </div>
+            <div class="stat">
+              <span class="stat-label">Nodes</span>
+              <span class="stat-value" id="ai-nodes">—</span>
+            </div>
+            <div class="stat stat-full">
+              <span class="stat-label">Pruned (α-β)</span>
+              <span class="stat-value" id="ai-pruned">—</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="panel-section">
+          <p class="section-label">AI Reasoning</p>
+          <p id="ai-reason" class="reason">Make a move to see the AI's reasoning.</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="panel-section">
+          <p class="section-label">Evaluated Moves</p>
+          <ul id="ai-eval-list" class="eval-list">
+            <li class="eval-empty">No moves evaluated yet.</li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="panel-section">
+          <p class="section-label">Move History</p>
+          <ul id="move-history" class="history-list">
+            <li class="eval-empty">No moves yet.</li>
+          </ul>
+        </div>
+
+      </aside>
+
+    </main>
+  </div>
+
+  <script type="module" src="src/app.js"></script>
+</body>
+</html>
